@@ -1,0 +1,46 @@
+/* Margins and Paddings utility classes */
+
+@use "../../sass/variables/spacings" as *;
+
+// The sides map
+$sides: (
+  left: "l",
+  right: "r",
+  top: "t",
+  bottom: "b",
+  "both-x": "x",
+  "both-y": "y"
+);
+
+// Mixin for writing a spacing rule for a side
+@mixin sideRules($property, $side, $value) {
+  @if $side == both-x {
+    #{$property}-left: $value;
+    #{$property}-right: $value;
+  }
+  @else if $side == both-y {
+    #{$property}-top: $value;
+    #{$property}-bottom: $value;
+  }
+  @else {
+    #{$property}-#{$side}: $value;
+  }
+}
+
+// The spacings rules
+$i: 1;
+@each $space in $spacings {
+  // Margin spacings
+  @each $side, $short-side in $sides {
+    .m#{$short-side}-#{$i} {
+      @include sideRules("margin", $side, $space);
+    }
+  }
+  // Padding spacings
+  @each $side, $short-side in $sides {
+    .p#{$short-side}-#{$i} {
+      @include sideRules("padding", $side, $space);
+    }
+  }
+  $i: $i + 1;
+}
