@@ -1,0 +1,23 @@
+@use "sass:math";
+
+// The base spacing value
+$base-space: 1rem;
+
+// The spacing increment coefficient
+$spacing-inc-coeff: 0.25;
+
+// The total number of spacing units
+$spacings-count: 8;
+
+// The spacings values
+$spacings: [];
+
+@for $i from 1 through $spacings-count {
+  $space: $base-space * $spacing-inc-coeff * $i;
+  $spacings: append($spacings, $space);
+}
+
+// Getter for the spacings values
+@function getSpacing($i) {
+  @return nth($spacings, $i);
+}
