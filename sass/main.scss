@@ -4,11 +4,8 @@
 // Utilities
 @forward "./utils/utils";
 
+// Base styles
+@forward "./base";
+
 // Features
 @forward "./features/header";
-
-// *, *::after, *::before {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
