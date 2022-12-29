@@ -1,0 +1,5 @@
+@use "./variables/spacings" as *;
+
+:root {
+  --page-padding-x: #{$page-padding-x};
+}

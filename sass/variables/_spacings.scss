@@ -1,4 +1,7 @@
 @use "sass:math";
+@use "../functions" as *;
+
+/* SPACING HIERACHY SYSTEM ******************************/
 
 // The base spacing value
 $base-space: 1rem;
@@ -21,3 +24,8 @@ $spacings: [];
 @function getSpacing($i) {
   @return nth($spacings, $i);
 }
+
+/* ***************************************************** */
+
+// The page layout's paddings on horizontal sides
+$page-padding-x: pxToRem(24);
