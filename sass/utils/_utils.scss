@@ -1,2 +1,9 @@
 @forward "./spacings";
 @forward "./flexbox";
+@forward "./sizings";
+
+// Page padding on both horizontal sides
+.page-p-x {
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+}
