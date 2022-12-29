@@ -753,4 +753,72 @@ template {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/* Flexbox utility classes */
+.flex {
+  display: flex;
+}
+
+/* DIRECTIONS ********************************************/
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* ***************************************************** */
+/* MAIN AXIS ALIGNMENT ***********************************/
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* ***************************************************** */
+/* CROSS AXIS ALIGNMENT **********************************/
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+/* ***************************************************** *//*# sourceMappingURL=main.css.map */
