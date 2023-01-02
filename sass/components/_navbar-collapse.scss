@@ -1,20 +1,17 @@
 @use "../variables/breakpoints" as *;
 @use "../mixins" as *;
 
-// Screen size breakpoint for the menu to be expanded
-$expand-screen: getScreenSize("lg");
-
 .navbar-toggle {
   // Hide toggle on expanded screen
-  @include min-viewport($expand-screen) {
+  @include min-viewport($expand-navbar-screen-size) {
     display: none;
   }
 }
 
 .navbar-menu {
   // Hide the navbar menu when told to on mobile screens 
-  @include max-viewport($expand-screen) {
-    &.dropdown-menu-hidden {
+  @include max-viewport($expand-navbar-screen-size) {
+    &.navbar-menu--hidden {
       display: none;
     }
   }
