@@ -1,0 +1,18 @@
+@use "../functions" as *;
+
+// Font-families
+$font-family: (
+  "base": #{Alata, sans-serif},
+  "heading": #{"Josefin Sans", sans-serif}
+);
+
+// Getter for the font-families
+@function getFontFamily($target: "base") {
+  @return map-get($font-family, $target);
+}
+
+// Body font size
+$body-font-size: pxToRem(15);
+
+// Headings line-height
+$heading-line-height: 0.95;

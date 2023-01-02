@@ -1,0 +1,17 @@
+@use "../functions" as *;
+
+// Screen sizes breakpoints
+$screens: (
+  "sm": 600,
+  "md": 768,
+  "lg": 992,
+  "xlg": 1200
+);
+
+// Getter for the screen sizes
+@function getScreenBreakpoint($breakpoint) {
+  @return pxToRem(map-get($screens, $breakpoint));
+}
+
+// The minimum screen size from which the navbar expands
+$expand-navbar-screen-size: getScreenBreakpoint("lg");

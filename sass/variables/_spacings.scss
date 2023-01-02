@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "../functions" as *;
+@use "./breakpoints" as *;
 
 /* SPACING HIERACHY SYSTEM ******************************/
 
@@ -10,7 +11,7 @@ $base-space: 1rem;
 $spacing-inc-coeff: 0.25;
 
 // The total number of spacing units
-$spacings-count: 8;
+$spacings-count: 12;
 
 // The spacings values
 $spacings: [];
@@ -27,5 +28,40 @@ $spacings: [];
 
 /* ***************************************************** */
 
-// The page layout's paddings on horizontal sides
-$page-padding-x: pxToRem(24);
+/* CONTAINER LAYOUT ************************************ */
+
+// Padding on the horizontal sides of the container layout
+$container-padding-x: pxToRem(24);
+
+// Paddings on the horizontal sides for each screen breakpoint
+$container-paddings: (
+  "sm": pxToRem(24),
+  "md": pxToRem(32),
+  "lg": pxToRem(36),
+  "xlg": pxToRem(40),
+);
+
+// Getter for the container's padding
+@function getContainerPadding($bp) {
+  @return map-get($container-paddings, $bp);
+}
+
+// Calculates the total container max-width from the inner content's max-width and the horizontal padding
+@function calcContainerMaxWidthFromInnerAndPadding($inner-max-width, $padding) {
+  @return calc(#{pxToRem($inner-max-width)} + #{$padding} * 2);
+} 
+
+// Container layout max-width for each screen breakpoint
+$container-max-widths: (
+  "sm": pxToRem(634),
+  "md": calcContainerMaxWidthFromInnerAndPadding(880, getContainerPadding("md")),
+  "lg": pxToRem(1096),
+  "xlg": calcContainerMaxWidthFromInnerAndPadding(1112, getContainerPadding("xlg")),
+);
+
+// Getter for the container's max-width
+@function getContainerMaxWidth($bp) {
+  @return map-get($container-max-widths, $bp);
+}
+
+/* ***************************************************** */
