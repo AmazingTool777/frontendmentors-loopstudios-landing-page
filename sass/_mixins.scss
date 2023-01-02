@@ -1,13 +1,27 @@
 // Media query for min-width based viewport
-@mixin min-viewport($min-width) {
-  @media only screen and (min-width: $min-width) {
-    @content;
+@mixin min-viewport($min-width, $inclusive: true) {
+  @if $inclusive {
+    @media only screen and (min-width: $min-width) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (min-width: calc(#{$min-width} + 1px)) {
+      @content;
+    }
   }
 }
 
 // Media query for max-width based viewport
-@mixin max-viewport($max-width) {
-  @media only screen and (max-width: $max-width) {
-    @content;
+@mixin max-viewport($max-width, $inclusive: false) {
+  @if ($inclusive) {
+    @media only screen and (max-width: $max-width) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (max-width: calc(#{$max-width} - 1px)) {
+      @content;
+    }
   }
 }
