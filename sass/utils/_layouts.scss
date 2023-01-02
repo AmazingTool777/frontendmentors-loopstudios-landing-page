@@ -1,7 +1,7 @@
 /* POSITIONS & TOP/BOTTOM/LEFT/RIGHT *********************/
 
 .relative {
-  position: absolute;
+  position: relative;
 }
 
 /* ***************************************************** */
@@ -21,3 +21,13 @@
 }
 
 /* ***************************************************** */
+
+// Page container
+.container {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: var(--container-padding-x);
+  padding-left: var(--container-padding-x);
+  max-width: var(--container-max-width);
+}

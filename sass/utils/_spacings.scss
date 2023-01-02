@@ -1,6 +1,8 @@
 /* Margins and Paddings utility classes */
 
-@use "../../sass/variables/spacings" as *;
+@use "../variables/spacings" as *;
+@use "../variables/breakpoints" as bp;
+@use "../mixins" as *;
 
 // The sides map
 $sides: (
@@ -27,11 +29,14 @@ $sides: (
   }
 }
 
-// The spacings rules
+/* SPACING RULES *******************************************/
+
+// Viewport free
 $i: 1;
 @each $space in $spacings {
   // Margin spacings
   @each $side, $short-side in $sides {
+    // Viewport-free
     .m#{$short-side}-#{$i} {
       @include sideRules("margin", $side, $space);
     }
@@ -44,3 +49,49 @@ $i: 1;
   }
   $i: $i + 1;
 }
+
+// Extras-small
+@include max-viewport(bp.getScreenBreakpoint("lg")) {
+  $i: 1;
+  @each $space in $spacings {
+    // Margin spacings
+    @each $side, $short-side in $sides {
+      // Viewport-free
+      .m#{$short-side}-xs-#{$i} {
+        @include sideRules("margin", $side, $space);
+      }
+    }
+    // Padding spacings
+    @each $side, $short-side in $sides {
+      .p#{$short-side}-xs-#{$i} {
+        @include sideRules("padding", $side, $space);
+      }
+    }
+    $i: $i + 1;
+  }
+}
+
+// For every screen breakpoint
+@each $bpLabel, $breakpoint in bp.$screens {
+  @include min-viewport(bp.getScreenBreakpoint($bpLabel)) {
+    $i: 1;
+    @each $space in $spacings {
+      // Margin spacings
+      @each $side, $short-side in $sides {
+        // Viewport-free
+        .m#{$short-side}-#{$bpLabel}-#{$i} {
+          @include sideRules("margin", $side, $space);
+        }
+      }
+      // Padding spacings
+      @each $side, $short-side in $sides {
+        .p#{$short-side}-#{$bpLabel}-#{$i} {
+          @include sideRules("padding", $side, $space);
+        }
+      }
+      $i: $i + 1;
+    }
+  }
+}
+
+/* ***************************************************** */
