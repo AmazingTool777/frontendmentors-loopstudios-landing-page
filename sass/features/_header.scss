@@ -1,0 +1,160 @@
+@use "../functions" as *;
+@use "../mixins" as *;
+@use "../variables/breakpoints" as *;
+@use "../variables/colors" as *;
+@use "../variables/typography" as *;
+@use "../variables/spacings" as *;
+
+.main-header {
+  height: pxToRem(650);
+  background-image: url("../assets/images/mobile/image-hero.jpg");
+  background-position: center;
+  background-size: cover;     
+  background-repeat: no-repeat;       
+  padding-top: pxToRem(38);
+
+  @include min-viewport(getScreenBreakpoint("md")) {
+    padding-top: pxToRem(50);
+    background-image: url("../assets/images/desktop/image-hero.jpg");
+  }
+
+  @include min-viewport(getScreenBreakpoint("lg")) {
+    padding-top: 68px;
+  }
+
+  &__hero-text {
+    // Font-sizes per screen size
+    $font-sizes: (
+      "sm": pxToRem(46),
+      "md": pxToRem(52),
+      "lg": pxToRem(60),
+      "xlg": pxToRem(70),
+    );
+    // Max-widths per screen size
+    $max-widths: (
+      "sm": pxToRem(400),
+      "md": pxToRem(458),
+      "lg": pxToRem(530),
+      "xlg": pxToRem(652),
+    );
+
+    border: 2px solid getPrimaryColor("white");
+    color: getPrimaryColor("white");
+    font-size: pxToRem(40);
+    max-width: pxToRem(354);
+
+    // The max-width and font-size rules per screen breapoint
+    @each $bp, $font-size in $font-sizes {
+      @include min-viewport(getScreenBreakpoint($bp)) {
+        font-size: $font-size;
+        max-width: map-get($max-widths, $bp);
+      }
+    }
+  }
+}
+
+// Navbar styling
+.app-navbar {
+  &__logo {
+    position: relative;
+    width: pxToRem(146);
+    z-index: 10;
+
+    @include min-viewport(getScreenBreakpoint("md")) {
+      width: pxToRem(171);
+    }
+
+    @include min-viewport($expand-navbar-screen-size) {
+      width: pxToRem(195);
+    }
+  }
+
+  &__menu-toggle {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+
+    // Toggle between the hamburger and close icon based the open state of the toggle
+    img#menu-hamburger-icon {
+      display: block;
+    }
+    img#menu-close-icon {
+      display: none;
+    }
+    &.navbar-toggle--open {
+      img#menu-hamburger-icon {
+        display: none;
+      }
+      img#menu-close-icon {
+        display: block;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: getPrimaryColor("black");
+    display: flex;
+    align-items: center;
+
+    @include min-viewport($expand-navbar-screen-size) {
+      position: static;
+      background: none;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  &__links-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include min-viewport($expand-navbar-screen-size) {
+      --container-padding-x: 0;
+
+      flex-direction: row;
+      padding: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-family: getFontFamily("heading");
+    font-weight: 300;
+    font-size: pxToRem(24);
+    text-decoration: none;
+    text-transform: uppercase;
+    color: getPrimaryColor("white");
+    padding-top: getSpacing(4);
+    padding-bottom: getSpacing(2);
+
+    @include min-viewport($expand-navbar-screen-size) {
+      --underline-origin: 50%;
+
+      font-family: getFontFamily("base");
+      font-weight: 400;
+      font-size: inherit;
+      text-transform: none;
+      padding-top: 2;
+      padding-bottom: getSpacing(4);
+      margin: 0 #{pxToRem(18)};
+    }
+  }
+  // The last link does not have a margin right
+  @include min-viewport($expand-navbar-screen-size) {
+    &__links-list > li:last-child &__link {
+      margin-right: 0;
+    }
+  }
+}

@@ -5,14 +5,54 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frontend mentor challenge</title>
+  <title>Loopstudios landing page</title>
   <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-  Hello world
-  <script src="./js/main.js"></script>
+  <!-- Main header -->
+  <div id="main-header" class="main-header">
+    <div class="container | flex flex-col h-full">
+      <!-- Navigation bar -->
+      <div id="main-navbar" class="app-navbar | flex justify-between items-center h-auto relative w-full">
+        <a href="#" id="app-logo" class="app-navbar__logo" aria-label="Loopstudios">
+          <img src="assets/images/logo.svg" alt="Loopstudios logo" class="w-full">
+        </a>
+        <div id="app-navbar-links-dropdown" class="flex items-center">
+          <button
+            aria-haspopup="true"
+            aria-controls="#app-navbar-menu"
+            aria-expanded="true"
+            data-toggle="navbar-collapse"
+            data-target="#app-navbar-menu"
+            class="app-navbar__menu-toggle navbar-toggle"
+          >
+            <img id="menu-hamburger-icon" src="assets/images/icon-hamburger.svg" alt="Hamburger icon">
+            <img id="menu-close-icon" src="assets/images/icon-close.svg" alt="Close icon">
+          </button>
+          <div id="app-navbar-menu" class="app-navbar__menu navbar-menu navbar-menu--hidden">
+            <ul class="app-navbar__links-list | container">
+              <li><a href="#" class="app-navbar__link | hover-underlined">About</a></li>
+              <li><a href="#" class="app-navbar__link | hover-underlined">Careers</a></li>
+              <li><a href="#" class="app-navbar__link | hover-underlined">Events</a></li>
+              <li><a href="#" class="app-navbar__link | hover-underlined">Products</a></li>
+              <li><a href="#" class="app-navbar__link | hover-underlined">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>  
+
+      <!-- Hero content -->
+      <div class="grow shrink basis-auto flex flex-col justify-center">
+        <h1 class="main-header__hero-text | px-6 pt-7 pb-4 px-md-7 pt-md-8 pb-md-5 pb-lg-6 pt-xlg-10 pb-xlg-6 px-xlg-9">
+          Immersive experiences that deliver
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <script defer type="module" src="./js/main.js"></script>
 </body>
 
 </html>
