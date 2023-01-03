@@ -1,0 +1,14 @@
+@use "../variables/typography" as *;
+@use "../variables/breakpoints" as *;
+@use "../mixins" as *;
+
+.article-heading {
+  font-size: getArticleHeadingFontSize("sm");
+  line-height: $article-headings-line-height;
+
+  @each $bp, $font-size in $article-heading-font-sizes {
+    @include min-viewport(getScreenBreakpoint($bp)) {
+      font-size: getArticleHeadingFontSize($bp);
+    }
+  }
+}
