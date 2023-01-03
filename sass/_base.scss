@@ -5,53 +5,57 @@
 
 // Typography font-faces
 @font-face {
-  font-family: "Josefin Sans";
-  src: url("../assets/fonts/Josefin_Sans/static/JosefinSans-Light.ttf");
-  font-weight: 300;
+	font-family: "Josefin Sans";
+	src: url("../assets/fonts/Josefin_Sans/static/JosefinSans-Light.ttf");
+	font-weight: 300;
 }
 @font-face {
-  font-family: Alata;
-  src: url("../assets/fonts/Alata/Alata-Regular.ttf");
-  font-weight: 400;
+	font-family: "Josefin Sans";
+	src: url("../assets/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf");
+	font-weight: 400;
+}
+@font-face {
+	font-family: Alata;
+	src: url("../assets/fonts/Alata/Alata-Regular.ttf");
+	font-weight: 400;
 }
 
 // Body font-size: 15px
 body {
-  font-size: $body-font-size;
+	font-size: $body-font-size;
 }
 
 // Global custom properties
 :root {
-  /* Container layout variables ************************ */
+	/* Container layout variables ************************ */
 
-  --container-padding-x: #{getContainerPadding("sm")};
-  @each $bp, $padding in $container-paddings {
-    @include min-viewport(getScreenBreakpoint($bp)) {
-      --container-padding-x: #{$padding};
-    }
-  }
+	--container-padding-x: #{getContainerPadding("sm")};
+	@each $bp, $padding in $container-paddings {
+		@include min-viewport(getScreenBreakpoint($bp)) {
+			--container-padding-x: #{$padding};
+		}
+	}
 
-  --container-max-width: #{getContainerMaxWidth("sm")};
-  @each $bp, $max-width in $container-max-widths {
-    @include min-viewport(getScreenBreakpoint($bp)) {
-      --container-max-width: #{$max-width};
-    }
-  }
+	--container-max-width: #{getContainerMaxWidth("sm")};
+	@each $bp, $max-width in $container-max-widths {
+		@include min-viewport(getScreenBreakpoint($bp)) {
+			--container-max-width: #{$max-width};
+		}
+	}
 
-  /* *************************************************** */
+	/* *************************************************** */
 }
 
-// Common styles to all elements
-* {
-  font-family: getFontFamily();
+body {
+	font-family: getFontFamily();
 }
 
 // Setting the heading font-family for the heading tags
 @for $i from 1 through 6 {
-  h#{$i} {
-    font-family: getFontFamily("heading");
-    font-weight: $heading-font-weight;
-    text-transform: uppercase;
-    line-height: $heading-line-height;
-  }
+	h#{$i} {
+		font-family: getFontFamily("heading");
+		font-weight: $heading-font-weight;
+		text-transform: uppercase;
+		line-height: $heading-line-height;
+	}
 }

@@ -1,0 +1,198 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+
+@use "../functions" as *;
+@use "../mixins" as *;
+@use "../variables/typography" as *;
+@use "../variables/colors" as *;
+@use "../variables/breakpoints" as *;
+
+// The list the creations grid areas
+$grid-areas: deep-earth night-arcade soccer-team-vr the-grid from-above pocket-borealis the-curiosity make-it-fisheye;
+// The length of the grid areas
+$grid-areas-length: list.length($grid-areas);
+
+// Returns the grid-template-areas of the creations grid based on a given number of columns
+/* @function getGridTemplateAreas($cols) {
+  $rows: math.floor(math.div($grid-areas-length, $cols));
+  $template-area:[];
+  @for $i from 1 through $rows {
+    $area-row: "";
+    @for $j from 1 through $cols {
+      $index: $cols * ($i - 1) + $j;
+      $area-row: append($area-row, nth($grid-areas, $index));
+    }
+    $template-area: append($template-area, $area-row);
+  }
+  @return list.join($template-area, " ");
+  // @return $template-area;
+} */
+
+// Font-size of the links per screen size
+$link-font-size: (
+	"sm": pxToRem(24),
+	"lg": pxToRem(28),
+	"xlg": pxToRem(32),
+);
+
+// Heading margin-bottom per screen size
+$heading-margin-bottom: (
+	"md": pxToRem(64),
+	"lg": pxToRem(76),
+	"xlg": pxToRem(88),
+);
+
+.our-creations-article {
+	text-align: center;
+	padding-bottom: pxToRem(96);
+
+	@include min-viewport(getScreenBreakpoint("md")) {
+		padding-bottom: pxToRem(112);
+	}
+
+	@include min-viewport(getScreenBreakpoint("lg")) {
+		text-align: left;
+		padding-bottom: pxToRem(156);
+	}
+
+	@include min-viewport(getScreenBreakpoint("xlg")) {
+		padding-bottom: pxToRem(184);
+	}
+
+	a {
+		text-transform: uppercase;
+	}
+
+	&__heading {
+		margin-bottom: pxToRem(52);
+
+		@each $bp, $mb in $heading-margin-bottom {
+			@include min-viewport(getScreenBreakpoint($bp)) {
+				margin-bottom: $mb;
+			}
+		}
+	}
+
+	&__grid-item {
+		max-width: 100%;
+		text-align: left;
+		position: relative;
+		@for $i from 1 through $grid-areas-length {
+			&:nth-child(#{$i}) {
+				grid-area: nth($grid-areas, $i);
+			}
+		}
+	}
+
+	&__grid {
+		display: grid;
+		list-style: none;
+		grid-template-columns: 1fr;
+		grid-template-areas: "deep-earth" "night-arcade" "soccer-team-vr" "the-grid" "from-above" "pocket-borealis" "the-curiosity" "make-it-fisheye";
+		gap: pxToRem(24);
+		max-width: pxToRem(424);
+
+		@include min-viewport(getScreenBreakpoint("md")) {
+			max-width: none;
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas: "deep-earth night-arcade" "soccer-team-vr the-grid" "from-above pocket-borealis" "the-curiosity make-it-fisheye";
+		}
+
+		@include min-viewport(getScreenBreakpoint("lg")) {
+			gap: pxToRem(27);
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-areas: "deep-earth night-arcade soccer-team-vr the-grid" "from-above pocket-borealis the-curiosity make-it-fisheye";
+		}
+
+		@include min-viewport(getScreenBreakpoint("xlg")) {
+			gap: pxToRem(30);
+		}
+	}
+
+	&__illustration {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	&__link {
+		--shadow-direction: to right;
+		--p-bottom: #{pxToRem(18)};
+		--p-x: #{pxToRem(20)};
+
+		color: #fff;
+		font-family: getFontFamily("heading");
+		font-size: map-get($link-font-size, "sm");
+		font-weight: 300;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		inset: 0;
+		display: flex;
+		align-items: flex-end;
+		padding: 0 var(--p-x) var(--p-bottom);
+		background: linear-gradient(var(--shadow-direction), rgba(0 0 0 / 0.5), rgb(0 0 0 / 0));
+		transition: 400ms;
+
+		&:hover {
+			color: #000;
+			background: rgb(255 255 255 / 0.6);
+		}
+
+		@each $bp, $font-size in $link-font-size {
+			@include min-viewport(getScreenBreakpoint($bp)) {
+				font-size: $font-size;
+			}
+		}
+
+		@include min-viewport(getScreenBreakpoint("lg")) {
+			--shadow-direction: to top;
+			--p-x: #{pxToRem(29)};
+			--p-bottom: #{pxToRem(26)};
+		}
+
+		@include min-viewport(getScreenBreakpoint("xlg")) {
+			--p-x: #{pxToRem(40)};
+			--p-bottom: #{pxToRem(32)};
+		}
+	}
+
+	&__link-text {
+		max-width: pxToRem(144);
+		line-height: 1;
+
+		@include min-viewport(getScreenBreakpoint("lg")) {
+			max-width: none;
+		}
+	}
+
+	&__see-all {
+		display: inline-block;
+		color: #000;
+		font-weight: 400;
+		font-size: pxToRem(14);
+		letter-spacing: 0.34rem;
+		border: 1px solid #000;
+		padding: pxToRem(12) pxToRem(40);
+		margin-top: pxToRem(32);
+		transition: 0.4s;
+
+		&:hover {
+			background-color: #000;
+			color: #fff;
+		}
+
+		@include min-viewport(getScreenBreakpoint("md")) {
+			margin-top: pxToRem(44);
+		}
+
+		@include min-viewport(getScreenBreakpoint("lg")) {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin-top: 0;
+			font-size: pxToRem(15);
+		}
+	}
+}

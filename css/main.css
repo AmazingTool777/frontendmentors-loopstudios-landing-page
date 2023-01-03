@@ -348,6 +348,10 @@ body > * {
   line-height: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* SPACING HIERACHY SYSTEM ******************************/
 /* ***************************************************** */
 /* CONTAINER LAYOUT ************************************ */
@@ -6580,6 +6584,11 @@ body > * {
   font-weight: 300;
 }
 @font-face {
+  font-family: "Josefin Sans";
+  src: url("../assets/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
   font-family: Alata;
   src: url("../assets/fonts/Alata/Alata-Regular.ttf");
   font-weight: 400;
@@ -6635,7 +6644,7 @@ body {
   }
 }
 
-* {
+body {
   font-family: Alata, sans-serif;
 }
 
@@ -6894,6 +6903,211 @@ h6 {
 @media only screen and (min-width: 62rem) {
   .lead-interact-vr-article__paragraph {
     padding: 0;
+  }
+}
+
+/* @function getGridTemplateAreas($cols) {
+  $rows: math.floor(math.div($grid-areas-length, $cols));
+  $template-area:[];
+  @for $i from 1 through $rows {
+    $area-row: "";
+    @for $j from 1 through $cols {
+      $index: $cols * ($i - 1) + $j;
+      $area-row: append($area-row, nth($grid-areas, $index));
+    }
+    $template-area: append($template-area, $area-row);
+  }
+  @return list.join($template-area, " ");
+  // @return $template-area;
+} */
+.our-creations-article {
+  text-align: center;
+  padding-bottom: 6rem;
+}
+@media only screen and (min-width: 48rem) {
+  .our-creations-article {
+    padding-bottom: 7rem;
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .our-creations-article {
+    text-align: left;
+    padding-bottom: 9.75rem;
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .our-creations-article {
+    padding-bottom: 11.5rem;
+  }
+}
+.our-creations-article a {
+  text-transform: uppercase;
+}
+.our-creations-article__heading {
+  margin-bottom: 3.25rem;
+}
+@media only screen and (min-width: 48rem) {
+  .our-creations-article__heading {
+    margin-bottom: 4rem;
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .our-creations-article__heading {
+    margin-bottom: 4.75rem;
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .our-creations-article__heading {
+    margin-bottom: 5.5rem;
+  }
+}
+.our-creations-article__grid-item {
+  max-width: 100%;
+  text-align: left;
+  position: relative;
+}
+.our-creations-article__grid-item:nth-child(1) {
+  grid-area: deep-earth;
+}
+.our-creations-article__grid-item:nth-child(2) {
+  grid-area: night-arcade;
+}
+.our-creations-article__grid-item:nth-child(3) {
+  grid-area: soccer-team-vr;
+}
+.our-creations-article__grid-item:nth-child(4) {
+  grid-area: the-grid;
+}
+.our-creations-article__grid-item:nth-child(5) {
+  grid-area: from-above;
+}
+.our-creations-article__grid-item:nth-child(6) {
+  grid-area: pocket-borealis;
+}
+.our-creations-article__grid-item:nth-child(7) {
+  grid-area: the-curiosity;
+}
+.our-creations-article__grid-item:nth-child(8) {
+  grid-area: make-it-fisheye;
+}
+.our-creations-article__grid {
+  display: grid;
+  list-style: none;
+  grid-template-columns: 1fr;
+  grid-template-areas: "deep-earth" "night-arcade" "soccer-team-vr" "the-grid" "from-above" "pocket-borealis" "the-curiosity" "make-it-fisheye";
+  gap: 1.5rem;
+  max-width: 26.5rem;
+}
+@media only screen and (min-width: 48rem) {
+  .our-creations-article__grid {
+    max-width: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "deep-earth night-arcade" "soccer-team-vr the-grid" "from-above pocket-borealis" "the-curiosity make-it-fisheye";
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .our-creations-article__grid {
+    gap: 1.6875rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "deep-earth night-arcade soccer-team-vr the-grid" "from-above pocket-borealis the-curiosity make-it-fisheye";
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .our-creations-article__grid {
+    gap: 1.875rem;
+  }
+}
+.our-creations-article__illustration {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+.our-creations-article__link {
+  --shadow-direction: to right;
+  --p-bottom: 1.125rem;
+  --p-x: 1.25rem;
+  color: #fff;
+  font-family: Josefin Sans, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 var(--p-x) var(--p-bottom);
+  background: linear-gradient(var(--shadow-direction), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  transition: 400ms;
+}
+.our-creations-article__link:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.6);
+}
+@media only screen and (min-width: 37.5rem) {
+  .our-creations-article__link {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .our-creations-article__link {
+    font-size: 1.75rem;
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .our-creations-article__link {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .our-creations-article__link {
+    --shadow-direction: to top;
+    --p-x: 1.8125rem;
+    --p-bottom: 1.625rem;
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .our-creations-article__link {
+    --p-x: 2.5rem;
+    --p-bottom: 2rem;
+  }
+}
+.our-creations-article__link-text {
+  max-width: 9rem;
+  line-height: 1;
+}
+@media only screen and (min-width: 62rem) {
+  .our-creations-article__link-text {
+    max-width: none;
+  }
+}
+.our-creations-article__see-all {
+  display: inline-block;
+  color: #000;
+  font-weight: 400;
+  font-size: 0.875rem;
+  letter-spacing: 0.34rem;
+  border: 1px solid #000;
+  padding: 0.75rem 2.5rem;
+  margin-top: 2rem;
+  transition: 0.4s;
+}
+.our-creations-article__see-all:hover {
+  background-color: #000;
+  color: #fff;
+}
+@media only screen and (min-width: 48rem) {
+  .our-creations-article__see-all {
+    margin-top: 2.75rem;
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .our-creations-article__see-all {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    font-size: 0.9375rem;
   }
 }
 
