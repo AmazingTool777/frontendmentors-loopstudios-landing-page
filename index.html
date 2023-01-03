@@ -12,7 +12,7 @@
 
 <body>
   <!-- Main header -->
-  <div id="main-header" class="main-header">
+  <header id="main-header" class="main-header">
     <div class="container | flex flex-col h-full">
       <!-- Navigation bar -->
       <div id="main-navbar" class="app-navbar | flex justify-between items-center h-auto relative w-full">
@@ -50,6 +50,27 @@
         </h1>
       </div>
     </div>
+  </header>
+
+  <!-- The leader in interactive VR article -->
+  <div class="container py-24 lead-interact-vr-article-container">
+    <article class="lead-interact-vr-article | relative">
+      <img
+        alt="A guy hyped inside VR"
+        srcset="assets/images/mobile/image-interactive.jpg 654w,
+        assets/images/desktop/image-interactive.jpg 731w"
+        sizes="(max-width: 992px) 654px,
+        731px"
+        src="assets/images/mobile/image-interactive.jpg"
+        class="lead-interact-vr-article__illustration | mx-auto"
+      >
+      <div class="lead-interact-vr-article__content | pt-12 mx-auto">
+        <h2 class="lead-interact-vr-article__title article-heading | pb-5">The leader in interactive VR</h2>
+        <p class="lead-interact-vr-article__paragraph px-2">
+          Founded in 2011, Loopstudios has been producing world-class virtual reality projects for some of the best companies around the globe. Our award-winning creations have transformed businesses through digital experiences that bind to their brand.
+        </p>
+      </div>
+    </article>
   </div>
 
   <script defer type="module" src="./js/main.js"></script>

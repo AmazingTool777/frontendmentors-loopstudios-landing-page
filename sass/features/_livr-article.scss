@@ -1,0 +1,73 @@
+@use "../variables/colors" as *;
+@use "../variables/breakpoints" as *;
+@use "../mixins" as *;
+@use "../functions" as *;
+
+// The viewport from which the layout begins to be broken
+$broken-layout-viewport: getScreenBreakpoint("lg");
+
+// The container layout of the article
+.lead-interact-vr-article-container {
+  @include min-viewport(getScreenBreakpoint("md")) {      
+    padding-top: pxToRem(117);
+    padding-bottom: pxToRem(117);
+  }
+
+  @include min-viewport($broken-layout-viewport) {      
+    padding-top: pxToRem(138);
+    padding-bottom: pxToRem(138);
+  }
+
+  @include min-viewport(getScreenBreakpoint("xlg")) {      
+    padding-top: pxToRem(160);
+    padding-bottom: pxToRem(160);
+  }
+}
+
+.lead-interact-vr-article {
+  text-align: center;
+  
+  &__illustration {
+    max-width: 100%;
+    display: block;
+
+    @include min-viewport($broken-layout-viewport) {
+      margin-left: 0;
+    }
+  }
+
+  &__content {
+    background-color: #fff;
+    max-width: pxToRem(534);
+    
+    @include min-viewport(getScreenBreakpoint("md")) {      
+      max-width: pxToRem(539);
+    }
+    
+    @include min-viewport($broken-layout-viewport) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-right: 0;
+      padding-left: pxToRem(74);
+      padding-top: pxToRem(72);
+      text-align: left;
+      max-width: pxToRem(524);
+    }
+
+    @include min-viewport(getScreenBreakpoint("xlg")) {
+      padding-top: pxToRem(96);
+      padding-left: pxToRem(98); 
+      max-width: pxToRem(544);
+    }
+  }
+  
+  &__paragraph {
+    line-height: 1.7;
+    color: getPrimaryColor("very-dark-gray");
+    
+    @include min-viewport($broken-layout-viewport) {
+      padding: 0;
+    }
+  }
+}

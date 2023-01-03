@@ -50,7 +50,7 @@ body {
 @for $i from 1 through 6 {
   h#{$i} {
     font-family: getFontFamily("heading");
-    font-weight: 300;
+    font-weight: $heading-font-weight;
     text-transform: uppercase;
     line-height: $heading-line-height;
   }

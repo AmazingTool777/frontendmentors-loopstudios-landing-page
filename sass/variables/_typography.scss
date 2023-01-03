@@ -16,3 +16,19 @@ $body-font-size: pxToRem(15);
 
 // Headings line-height
 $heading-line-height: 0.95;
+// Headings font weight
+$heading-font-weight: 300;
+
+// Article headings line-height
+$article-headings-line-height: 1.02;
+// Article headings font-sizes per screen breakpoint
+$article-heading-font-sizes: (
+  "sm": pxToRem(32),
+  "lg": pxToRem(40),
+  "xlg": pxToRem(48),
+);
+
+// Getter for the article headings font-sizes
+@function getArticleHeadingFontSize($bp) {
+  @return map-get($article-heading-font-sizes, $bp);
+}
