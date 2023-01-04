@@ -7000,7 +7000,7 @@ h6 {
   grid-template-columns: 1fr;
   grid-template-areas: "deep-earth" "night-arcade" "soccer-team-vr" "the-grid" "from-above" "pocket-borealis" "the-curiosity" "make-it-fisheye";
   gap: 1.5rem;
-  max-width: 26.5rem;
+  max-width: 29rem;
 }
 @media only screen and (min-width: 48rem) {
   .our-creations-article__grid {
@@ -7160,7 +7160,7 @@ h6 {
 }
 @media only screen and (min-width: 62rem) {
   .main-footer {
-    --py: 2.5rem;
+    --py: 2.75rem;
     padding-bottom: 2rem;
   }
 }

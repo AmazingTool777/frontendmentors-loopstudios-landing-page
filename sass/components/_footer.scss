@@ -16,7 +16,7 @@
 	}
 
 	@include min-viewport(getScreenBreakpoint("lg")) {
-		--py: #{pxToRem(40)};
+		--py: #{pxToRem(44)};
 		padding-bottom: pxToRem(32);
 	}
 

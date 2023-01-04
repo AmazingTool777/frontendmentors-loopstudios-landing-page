@@ -91,7 +91,7 @@ $heading-margin-bottom: (
 		grid-template-columns: 1fr;
 		grid-template-areas: "deep-earth" "night-arcade" "soccer-team-vr" "the-grid" "from-above" "pocket-borealis" "the-curiosity" "make-it-fisheye";
 		gap: pxToRem(24);
-		max-width: pxToRem(424);
+		max-width: pxToRem(464);
 
 		@include min-viewport(getScreenBreakpoint("md")) {
 			max-width: none;
