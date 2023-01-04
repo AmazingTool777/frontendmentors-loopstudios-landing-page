@@ -1,0 +1,83 @@
+@use "../variables/breakpoints" as *;
+@use "../variables/typography" as *;
+@use "../variables/colors" as *;
+@use "../mixins" as *;
+@use "../functions" as *;
+
+.main-footer {
+	--py: #{pxToRem(56)};
+
+	background-color: #000;
+	padding: var(--py) 0;
+	font-size: pxToRem(15);
+
+	@include min-viewport(getScreenBreakpoint("md")) {
+		--py: #{pxToRem(64)};
+	}
+
+	@include min-viewport(getScreenBreakpoint("lg")) {
+		--py: #{pxToRem(40)};
+		padding-bottom: pxToRem(32);
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+
+		@include min-viewport(getScreenBreakpoint("lg")) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	&__logo {
+		width: pxToRem(146);
+	}
+
+	&__section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@include min-viewport(getScreenBreakpoint("lg")) {
+			&--nav {
+				align-items: flex-start;
+			}
+
+			&--sm-attr {
+				align-items: flex-end;
+				margin-top: 0;
+			}
+		}
+	}
+
+	&__links-list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@include min-viewport(getScreenBreakpoint("lg")) {
+			flex-direction: row;
+
+			li:not(:last-child) {
+				margin-right: pxToRem(36);
+			}
+		}
+	}
+
+	&__link {
+		display: block;
+		color: #fff;
+		padding: pxToRem(8) 0 pxToRem(14);
+	}
+
+	&__sm-link {
+		padding-bottom: pxToRem(8);
+		height: 100%;
+	}
+
+	&__attribution {
+		color: getPrimaryColor("dark-gray");
+		font-weight: 400;
+	}
+}
