@@ -39,8 +39,8 @@ $link-font-size: (
 // Heading margin-bottom per screen size
 $heading-margin-bottom: (
 	"md": pxToRem(64),
-	"lg": pxToRem(76),
-	"xlg": pxToRem(88),
+	"lg": pxToRem(72),
+	"xlg": pxToRem(80),
 );
 
 .our-creations-article {
@@ -137,7 +137,7 @@ $heading-margin-bottom: (
 
 		&:hover {
 			color: #000;
-			background: rgb(255 255 255 / 0.6);
+			background: rgb(255 255 255 / 0.65);
 		}
 
 		@each $bp, $font-size in $link-font-size {
