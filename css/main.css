@@ -7115,38 +7115,6 @@ h6 {
   }
 }
 
-@media only screen and (min-width: 62rem) {
-  .navbar-toggle {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: calc(62rem - 1px)) {
-  .navbar-menu.navbar-menu--hidden {
-    display: none;
-  }
-}
-
-.article-heading {
-  font-size: 2rem;
-  line-height: 1.02;
-}
-@media only screen and (min-width: 37.5rem) {
-  .article-heading {
-    font-size: 2rem;
-  }
-}
-@media only screen and (min-width: 62rem) {
-  .article-heading {
-    font-size: 2.5rem;
-  }
-}
-@media only screen and (min-width: 75rem) {
-  .article-heading {
-    font-size: 3rem;
-  }
-}
-
 .main-footer {
   --py: 3.5rem;
   background-color: #000;
@@ -7216,4 +7184,36 @@ h6 {
 .main-footer__attribution {
   color: hsl(0deg, 0%, 55%);
   font-weight: 400;
+}
+
+@media only screen and (min-width: 62rem) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: calc(62rem - 1px)) {
+  .navbar-menu.navbar-menu--hidden {
+    display: none;
+  }
+}
+
+.article-heading {
+  font-size: 2rem;
+  line-height: 1.02;
+}
+@media only screen and (min-width: 37.5rem) {
+  .article-heading {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .article-heading {
+    font-size: 2.5rem;
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .article-heading {
+    font-size: 3rem;
+  }
 }/*# sourceMappingURL=main.css.map */
