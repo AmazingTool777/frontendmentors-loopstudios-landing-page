@@ -2,40 +2,41 @@
 @forward "./flexbox";
 @forward "./sizings";
 @forward "./layouts";
+@forward "./misc";
 
 @use "../functions" as *;
 
 // With underlined animation on hover
 .hover-underlined {
-  --underline-origin: 0;
+	--underline-origin: 0;
 
-  // For the underline to be positioned
-  position: relative;
+	// For the underline to be positioned
+	position: relative;
 
-  // The underline animation starts from the center
-  &__center {
-    --underline-origin: 50%;
-  }
+	// The underline animation starts from the center
+	&-center {
+		--underline-origin: 50%;
+	}
 
-  // The underline
-  &::after {
-    content: "";
-    display: block;
-    background-color: #fff;
-    height: pxToRem(2);
-    width: 0;
-    transition: width 0.4s;
-    position: absolute;
-    left: var(--underline-origin);
-    bottom: 0;
-    transform: translateX(calc(-1 * var(--underline-origin)));
-  }
+	// The underline
+	&::after {
+		content: "";
+		display: block;
+		background-color: #fff;
+		height: pxToRem(2);
+		width: 0;
+		transition: width 0.4s;
+		position: absolute;
+		left: var(--underline-origin);
+		bottom: 0;
+		transform: translateX(calc(-1 * var(--underline-origin)));
+	}
 
-  &:hover::after {
-    width: 50%;
-  }
-  // The underline expands to the full-width of the parent
-  &__full:hover::after {
-    width: 100%;
-  }
+	&:hover::after {
+		width: 50%;
+	}
+	// The underline expands to the full-width of the parent
+	&-full:hover::after {
+		width: 100%;
+	}
 }
